@@ -2,10 +2,17 @@ import math
 
 
 def print_matrix( matrix ):
-    pass
+    final = ''
+    for i in range(len(matrix[0])):
+        for j in range(len(matrix[0])):
+            final += str(matrix[i][j]) + ' '
+        final += '\n'
+    print final
 
 def ident( matrix ):
-    pass
+    new_matrix()
+    for i in range(0, 4, 1):
+        matrix[i][i] = 1
 
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
