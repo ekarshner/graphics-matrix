@@ -16,7 +16,7 @@ def ident( matrix ):
 
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-    pass
+    final = new_matrix(len(m1[0]), 1)
 
 
 
