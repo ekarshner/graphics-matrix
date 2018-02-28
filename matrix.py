@@ -24,18 +24,14 @@ def ident( matrix ):
 def matrix_mult( m1, m2 ):
     final = new_matrix(len(m1[0]), len(m2))
     print_matrix(final)
-    for rownum in range(len(m1[0])):
-        print('rownum')
-        print rownum
-        for rowitem in range(len(m1)):
-            print('rowitem')
-            print rowitem
+    for col in range(len(m2)):
+        for row in range(len(m1[0])):
             temp = 0
-            for colitem in range(len(m1[0])):
-                temp += (m1[rowitem][rownum] * m2[rownum][colitem])
+            for item in range(len(m1[0])):
+                temp += (m1[item][row] * m2[col][item])
                 print('temp')
                 print temp
-            final[rowitem][rownum] = temp
+            final[col][row] = temp
     m2 = final
 
 def random_matrix(matrix):
