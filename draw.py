@@ -3,24 +3,26 @@ from matrix import *
 
 
 def draw_lines( matrix, screen, color ):
-    for i in range(0, len(matrix[0]), 2):
-        draw_line(matrix[0][i],matrix[1][i], matrix[0][i+1], matrix[1][i+1])
+    #for i in range(0, len(matrix), 2):
+    #    draw_line(matrix[i][0], matrix[i][1], matrix[i+1][0], matrix[i+1][1], screen, color)
+    #    print('drew')
+    #    print(i)
+    i = 0
+    while( i < len(matrix) ):
+        draw_line( matrix[i][0], matrix[i][1], matrix[i+1][0], matrix[i+1][1], screen, color)
+        i += 2
 
 def add_edge( matrix, x0, y0, z0, x1, y1, z1 ):
     add_point(matrix, x0, y0, z0)
     add_point(matrix, x1, y1, z1)
 
 def add_point( matrix, x, y, z=0 ):
-    matrix.append([])
-    matrix[len(matrix) - 1].append(x)
-    matrix[len(matrix) - 1].append(y)
-    matrix[len(matrix) - 1].append(z)
-    matrix[len(matrix) - 1].append(1)
+    point = [x, y, z, 1]
+    matrix.append(point)
 
 
 
 def draw_line( x0, y0, x1, y1, screen, color ):
-
     if(x0 > x1):
         temp = x0
         x0 = x1
@@ -68,8 +70,8 @@ def draw_line( x0, y0, x1, y1, screen, color ):
             if(d < 0):
                 x0 += 1
                 d += 2 * a
-            y0 -= 1
-            d += 2 * b
+            y0 += 1
+            d -= 2 * b
         return
 
     #octant7
@@ -93,7 +95,7 @@ def draw_line( x0, y0, x1, y1, screen, color ):
             plot(screen, color, x0, y0)
             if(d < 0):
                 y0 -= 1
-                d -= 2 * b
+                d += 2 * b
             x0 += 1
             d += 2 * a
         return

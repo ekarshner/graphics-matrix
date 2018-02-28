@@ -3,8 +3,7 @@ from draw import *
 from matrix import *
 
 screen = new_screen()
-color = [ 0, 255, 0 ]
-matrix = new_matrix()
+color = [0, 200, 0]
 
 print('print_matrix')
 m1 = new_matrix()
@@ -42,3 +41,13 @@ print_matrix(m3)
 
 
 #make starburst
+matrix = new_matrix()
+for i in range(100, 400, 10):
+    add_edge( matrix, i, 100, 0, 400 - i, 400, 0)
+for j in range(100, 400, 10):
+    add_edge( matrix, 100, j, 0, 400, 400 -j, 0)
+draw_lines(matrix,screen, color)
+
+
+display(screen)
+save_extension(screen, 'img.png')
